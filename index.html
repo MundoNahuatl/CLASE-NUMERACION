@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Video protegido</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <img src="logos/master.png" alt="Logo izquierdo" id="logo-izquierdo">
+<img src="logos/master.png" alt="Logo derecho" id="logo-derecho">
+
+
+  <h1>BIENVENIDO A MUNDO NAHUAT</h1>
+  <h2>APRENDE NAHUAT</h2>
+la opcion facil
+  
+  <div id="password-container">
+    <p>Introduce la contraseña para ver el video:</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="verificarContrasena()">ENTRAR</button>
+    <p id="mensaje" style="color: red;"></p>
+  </div>
+
+  <!-- NUEVO: Contenedor del formulario de nombre -->
+  <div id="formulario-container" style="display: none; margin-top: 20px;">
+    <h3>Por favor, escribe tu nombre:</h3>
+    <!-- Aquí pegas el iframe de Google Forms -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdl2LtMyS1IcqusjqgopoU84MOw8NfntN7UG-4FksELHI1bPA/viewform?usp=preview" width="640" height="407" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <!-- Botón para continuar después de llenar el formulario -->
+    <button onclick="mostrarVideo()">CONTINUAR</button>
+  </div>
+
+  <!-- Video oculto al inicio -->
+  <div id="video-container" style="display: none; margin-top: 20px;">
+    <iframe 
+      src="https://player.vimeo.com/video/1086597126?h=384994588e" 
+      width="960" height="540"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    function verificarContrasena() {
+      const password = document.getElementById("password").value;
+      const correcta = "SIU";
+
+      if (password === correcta) {
+        document.getElementById("password-container").style.display = "none";
+        document.getElementById("formulario-container").style.display = "block";
+      } else {
+        document.getElementById("mensaje").textContent = "Contraseña incorrecta";
+      }
+    }
+
+    function mostrarVideo() {
+      document.getElementById("formulario-container").style.display = "none";
+      document.getElementById("video-container").style.display = "block";
+    }
+
+    // Enter también sirve
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("password").addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+          verificarContrasena();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
