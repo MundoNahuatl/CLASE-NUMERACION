@@ -38,6 +38,8 @@ iframe {
   width: 150px;
   z-index: 9999;
 }
+
+/* Estilo para el botón CONTINUAR */
 .btn-continuar {
   padding: 20px 40px;
   font-size: 24px;
@@ -56,3 +58,7 @@ iframe {
   transform: scale(1.05);
 }
 
+/* Centrar el contenido del contenedor del formulario */
+#formulario-container {
+  text-align: center;
+}
