@@ -59,7 +59,11 @@
         verificarContrasena();
       }
     });
-  });
-</script>
+   // 🔒 BLOQUEO DEL CLIC DERECHO
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+    });
+  </script>
 </body>
 </html>
